@@ -1,0 +1,7 @@
+TEAM_ID=
+
+PRODUCT_NAME=bimm-kmp-challenge-joaquim
+PRODUCT_BUNDLE_IDENTIFIER=co.bimm.chalenge.joaquim.bimm-kmp-challenge-joaquim$(TEAM_ID)
+
+CURRENT_PROJECT_VERSION=1
+MARKETING_VERSION=1.0
