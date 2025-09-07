@@ -28,7 +28,7 @@ class SakeShopListViewModel(
             _state.value
         )
 
-    private fun fetchSakeShops() = viewModelScope.launch {
+    fun fetchSakeShops() = viewModelScope.launch {
         _state.update {
             it.copy(
                 isLoading = true

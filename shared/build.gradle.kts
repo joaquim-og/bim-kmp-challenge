@@ -39,6 +39,7 @@ kotlin {
             implementation(compose.foundation)
             implementation(compose.material3)
             implementation(libs.jetbrains.compose.navigation)
+            implementation(libs.ui.tooling)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)

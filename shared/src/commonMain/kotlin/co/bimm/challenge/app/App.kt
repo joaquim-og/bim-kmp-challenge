@@ -38,7 +38,8 @@ fun App() {
                         viewModel = viewModel,
                         onSakeShopTapped = { sakeShop ->
                             //TODO
-                        }
+                        },
+                        onRetry = { viewModel.fetchSakeShops() }
                     )
                 }
                 composable<Route.SakeShopDetail>(
