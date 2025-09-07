@@ -13,14 +13,20 @@ import org.koin.compose.viewmodel.koinViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
+import co.bimm.challenge.core.platform.PlatformActions
+import co.bimm.challenge.sakeShops.presentation.sakeShopDetail.SakeShopDetailScreen
+import co.bimm.challenge.sakeShops.presentation.sakeShopDetail.SakeShopDetailViewModel
 import co.bimm.challenge.sakeShops.presentation.sakeShopList.SakeShopListScreen
 import co.bimm.challenge.sakeShops.presentation.sakeShopList.SakeShopListViewModel
+import org.koin.compose.koinInject
 
 @Composable
 @Preview
 fun App() {
     MaterialTheme {
         val navController = rememberNavController()
+        val platformActions = koinInject<PlatformActions>()
+
         NavHost(
             navController = navController,
             startDestination = Route.SakeShopsGraph
@@ -33,32 +39,55 @@ fun App() {
                     popEnterTransition = { slideInHorizontally() }
                 ) {
                     val viewModel = koinViewModel<SakeShopListViewModel>()
+                    val sakeShopDetailViewModel =
+                        it.sharedKoinViewModel<SakeShopDetailViewModel>(navController)
 
                     SakeShopListScreen(
                         viewModel = viewModel,
                         onSakeShopTapped = { sakeShop ->
-                            //TODO
-                        }
+                            sakeShopDetailViewModel.onSelectSakeShop(sakeShop)
+                            navController.navigate(
+                                Route.SakeShopDetail(sakeShop.name)
+                            )
+                        },
+                        onRetry = { viewModel.fetchSakeShops() }
                     )
                 }
                 composable<Route.SakeShopDetail>(
-                    enterTransition = { slideInHorizontally { initialOffset ->
-                        initialOffset
-                    } },
-                    exitTransition = { slideOutHorizontally { initialOffset ->
-                        initialOffset
-                    } }
+                    enterTransition = {
+                        slideInHorizontally { initialOffset ->
+                            initialOffset
+                        }
+                    },
+                    exitTransition = {
+                        slideOutHorizontally { initialOffset ->
+                            initialOffset
+                        }
+                    }
                 ) {
-                    //TODO
+                    val sakeShopDetailViewModel =
+                        it.sharedKoinViewModel<SakeShopDetailViewModel>(navController)
+
+                    sakeShopDetailViewModel.selectedSakeShop.value?.let { sakeShop ->
+                        SakeShopDetailScreen(
+                            sakeShop = sakeShop,
+                            onAddressClicked = { address ->
+                                platformActions.openMap(address)
+                            },
+                            onWebsiteClicked = { website ->
+                                platformActions.openWebsite(website)
+                            },
+                            onBackClicked = { navController.popBackStack() }
+                        )
+                    }
                 }
             }
         }
-
     }
 }
 
 @Composable
-private inline fun <reified T: ViewModel> NavBackStackEntry.sharedKoinViewModel(
+private inline fun <reified T : ViewModel> NavBackStackEntry.sharedKoinViewModel(
     navController: NavController
 ): T {
     val navGraphRoute = destination.parent?.route ?: return koinViewModel<T>()
