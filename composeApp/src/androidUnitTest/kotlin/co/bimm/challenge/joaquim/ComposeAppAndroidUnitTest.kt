@@ -1,4 +1,4 @@
-package co.bimm.chalenge.joaquim
+package co.bimm.challenge.joaquim
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
