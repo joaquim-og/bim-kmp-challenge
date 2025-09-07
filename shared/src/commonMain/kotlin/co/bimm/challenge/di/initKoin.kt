@@ -9,3 +9,5 @@ fun initKoin(config: KoinAppDeclaration? = null) {
         modules(sharedModule, platformModule)
     }
 }
+
+fun initKoinIos() = initKoin()

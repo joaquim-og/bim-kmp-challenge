@@ -22,12 +22,20 @@ actual class PlatformActions {
         val appleUrl = NSURL.URLWithString(appleMapsUrl)
 
         if (appleUrl != null && UIApplication.sharedApplication.canOpenURL(appleUrl)) {
-            UIApplication.sharedApplication.openURL(appleUrl)
+            UIApplication.sharedApplication.openURL(
+                appleUrl,
+                options = emptyMap<Any?, Any>(),
+                completionHandler = null
+            )
         } else {
             val googleMapsUrl = "https://www.google.com/maps/search/$encodedAddress"
             val googleUrl = NSURL.URLWithString(googleMapsUrl)
             if (googleUrl != null) {
-                UIApplication.sharedApplication.openURL(googleUrl)
+                UIApplication.sharedApplication.openURL(
+                    googleUrl,
+                    options = emptyMap<Any?, Any>(),
+                    completionHandler = null
+                )
             }
         }
     }
@@ -35,7 +43,11 @@ actual class PlatformActions {
     actual fun openWebsite(url: String) {
         val nsUrl = NSURL.URLWithString(url)
         if (nsUrl != null && UIApplication.sharedApplication.canOpenURL(nsUrl)) {
-            UIApplication.sharedApplication.openURL(nsUrl)
+            UIApplication.sharedApplication.openURL(
+                nsUrl,
+                options = emptyMap<Any?, Any>(),
+                completionHandler = null
+            )
         }
     }
 }

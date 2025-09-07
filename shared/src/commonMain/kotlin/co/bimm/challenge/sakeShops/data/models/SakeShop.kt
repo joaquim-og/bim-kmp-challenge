@@ -6,7 +6,8 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class SakeShop(
     val name: String,
-    val description: String,
+    @SerialName("description")
+    val shopDescription: String,
     val picture: String?,
     val rating: Double,
     val address: String,

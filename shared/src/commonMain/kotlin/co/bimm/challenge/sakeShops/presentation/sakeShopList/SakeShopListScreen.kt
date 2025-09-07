@@ -212,7 +212,7 @@ private fun SakeShopListScreenWithDataPreview() {
         val sampleShops = listOf(
             SakeShop(
                 name = "信州スシサカバ 寿しなの",
-                description = "Sushi bar with a variety of sake options.",
+                shopDescription = "Sushi bar with a variety of sake options.",
                 picture = "http://ts1.mm.bing.net/th?id=OIP.GURnZicaENMLYBMZN9k1LwHaFS&pid=15.1",
                 rating = 4.0,
                 address = "〒380-0824 長野県長野市南長野南石堂町1421",
@@ -222,7 +222,7 @@ private fun SakeShopListScreenWithDataPreview() {
             ),
             SakeShop(
                 name = "Masuichi Brewery",
-                description = "Brewery located in Obuse, known for its traditional sake.",
+                shopDescription = "Brewery located in Obuse, known for its traditional sake.",
                 picture = "https://gigaplus.makeshop.jp/masuichi/assets_v2/img/common/slide1.jpg",
                 rating = 4.3,
                 address = "〒381-0201 長野県上高井郡小布施町大字小布施807",
@@ -232,7 +232,7 @@ private fun SakeShopListScreenWithDataPreview() {
             ),
             SakeShop(
                 name = "Tamamura Honten",
-                description = "Brewery in Yamanouchi, known for its sake and beer.",
+                shopDescription = "Brewery in Yamanouchi, known for its sake and beer.",
                 picture = null,
                 rating = 4.6,
                 address = "〒381-0401 長野県下高井郡山ノ内町大字平穏1163",

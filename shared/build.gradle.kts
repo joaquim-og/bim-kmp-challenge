@@ -33,13 +33,13 @@ kotlin {
             implementation(libs.koin.android)
             implementation(libs.koin.androidx.compose)
             implementation(libs.ktor.client.okhttp)
+            implementation(libs.ui.tooling)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
             implementation(libs.jetbrains.compose.navigation)
-            implementation(libs.ui.tooling)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
@@ -57,6 +57,15 @@ kotlin {
         }
         nativeMain.dependencies {
             implementation(libs.ktor.client.darwin)
+        }
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
+            api(libs.koin.core)
+        }
+        targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+            binaries.withType<org.jetbrains.kotlin.gradle.plugin.mpp.Framework> {
+                export(libs.koin.core)
+            }
         }
     }
 }
