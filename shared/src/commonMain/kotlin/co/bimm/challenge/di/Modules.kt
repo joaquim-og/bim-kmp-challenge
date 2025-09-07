@@ -5,6 +5,7 @@ import co.bimm.challenge.sakeShops.data.network.KtorRemoteSakeShopDataSource
 import co.bimm.challenge.sakeShops.data.network.RemoteSakeShopDataSource
 import co.bimm.challenge.sakeShops.data.repository.SearchSakesShopRepositoryImpl
 import co.bimm.challenge.sakeShops.domain.SearchSakesShopRepository
+import co.bimm.challenge.sakeShops.presentation.sakeShopDetail.SakeShopDetailViewModel
 import co.bimm.challenge.sakeShops.presentation.sakeShopList.SakeShopListViewModel
 import org.koin.core.module.Module
 import org.koin.core.module.dsl.viewModelOf
@@ -30,4 +31,5 @@ val sharedModule = module {
 
 
     viewModelOf(::SakeShopListViewModel)
+    viewModelOf(::SakeShopDetailViewModel)
 }

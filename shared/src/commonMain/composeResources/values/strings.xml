@@ -10,4 +10,10 @@
     <string name="empty_list">No sake shops found</string>
     <string name="loading">Loading sake shops...</string>
     <string name="title_list">Sake Shops</string>
+    <string name="visit_website">Visit Website</string>
+    <string name="address">Address</string>
+    <string name="open_in_maps">Tap to open in Maps</string>
+    <string name="of_5_stars">out of 5 stars</string>
+    <string name="no_image">No Image Available</string>
+    <string name="picture_of">Picture of</string>
 </resources>
