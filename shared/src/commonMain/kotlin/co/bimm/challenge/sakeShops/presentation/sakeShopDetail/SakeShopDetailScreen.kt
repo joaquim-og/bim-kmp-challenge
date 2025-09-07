@@ -98,7 +98,7 @@ private fun SakeShopDetailsView(
                 )
 
                 SakeShopDescriptionSection(
-                    description = sakeShop?.description.orEmpty()
+                    description = sakeShop?.shopDescription.orEmpty()
                 )
 
                 SakeShopAddressSection(
@@ -124,7 +124,7 @@ private fun SakeShopDetailScreenPreview() {
     MaterialTheme {
         val sampleShop = SakeShop(
             name = "信州スシサカバ 寿しなの",
-            description = "A traditional sushi bar specializing in fresh sashimi and an extensive collection of premium sake from the Nagano region. Our master chef has over 20 years of experience and carefully selects the finest ingredients.",
+            shopDescription = "A traditional sushi bar specializing in fresh sashimi and an extensive collection of premium sake from the Nagano region. Our master chef has over 20 years of experience and carefully selects the finest ingredients.",
             picture = "http://ts1.mm.bing.net/th?id=OIP.GURnZicaENMLYBMZN9k1LwHaFS&pid=15.1",
             rating = 4.5,
             address = "〒380-0824 長野県長野市南長野南石堂町1421",
@@ -148,7 +148,7 @@ private fun SakeShopDetailScreenNoImagePreview() {
     MaterialTheme {
         val sampleShop = SakeShop(
             name = "Hokuan Brewery",
-            description = "Small family-owned brewery in Omachi City, known for its Daikokumasamune sake. We use traditional brewing methods passed down through generations.",
+            shopDescription = "Small family-owned brewery in Omachi City, known for its Daikokumasamune sake. We use traditional brewing methods passed down through generations.",
             picture = null,
             rating = 4.0,
             address = "〒398-0002 長野県大町市大町2340-1",

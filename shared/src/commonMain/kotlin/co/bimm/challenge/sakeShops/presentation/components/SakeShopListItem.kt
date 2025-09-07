@@ -133,7 +133,7 @@ private fun SakeShopListItemPreview() {
     MaterialTheme {
         val sampleSakeShop = SakeShop(
             name = "信州スシサカバ 寿しなの",
-            description = "Sushi bar with a variety of sake options.",
+            shopDescription = "Sushi bar with a variety of sake options.",
             picture = "http://ts1.mm.bing.net/th?id=OIP.GURnZicaENMLYBMZN9k1LwHaFS&pid=15.1",
             rating = 4.5,
             address = "〒380-0824 長野県長野市南長野南石堂町1421",
@@ -169,7 +169,7 @@ private fun SakeShopListItemLongNamePreview() {
     MaterialTheme {
         val sampleSakeShop = SakeShop(
             name = "Very Long Sake Shop Name That Should Be Truncated With Ellipsis",
-            description = "This is a brewery with a really long description that should also be truncated properly",
+            shopDescription = "This is a brewery with a really long description that should also be truncated properly",
             picture = null,
             rating = 3.8,
             address = "〒381-0201 長野県上高井郡小布施町大字小布施807番地の長い住所",
