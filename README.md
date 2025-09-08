@@ -1,39 +1,29 @@
-This is a Kotlin Multiplatform project targeting Android, iOS.
+# BIMM KMP Challenge
 
-* [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./composeApp/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./composeApp/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./composeApp/src/jvmMain/kotlin)
-    folder is the appropriate location.
+## App Summary 📖
 
-* [/iosApp](./iosApp/iosApp) contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform,
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+This is a Kotlin Multiplatform project targeting Android and iOS platforms. The business logic was built on the shared layer, while UI was built natively, using Jetpack Compose for Android and SwiftUI for IOS codebase.
 
-* [/shared](./shared/src) is for the code that will be shared between all targets in the project.
-  The most important subfolder is [commonMain](./shared/src/commonMain/kotlin). If preferred, you
-  can add code to the platform-specific folders here too.
+## ⚡ Architecture
 
-### Build and Run Android Application
+- **MVVM (Model-View-ViewModel)**: Organises the codebase with a clear separation of concerns, ensuring maintainable and testable code.
+- **Kotlin Multiplatform**: Enables code sharing between Android and iOS, reducing duplication and ensuring consistency.
 
-To build and run the development version of the Android app, use the run configuration from the run widget
-in your IDE’s toolbar or build it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:assembleDebug
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:assembleDebug
-  ```
+## 🌱 Technologies
 
-### Build and Run iOS Application
+- **Kotlin**: The primary programming language for both shared and platform-specific shared code.
+- **Jetpack Compose**: Used for building a modern, declarative UI for Android.
+- **Swift UI**: Used for building a modern, declarative UI for IOS.
+- **Kotlin Multiplatform (KMP)**: Facilitates code sharing across Android and iOS.
+- **Coroutines**: For asynchronous programming and managing background tasks.
 
-To build and run the development version of the iOS app, use the run configuration from the run widget
-in your IDE’s toolbar or open the [/iosApp](./iosApp) directory in Xcode and run it from there.
+## 🛠️ Project Structure
 
----
-
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+- **/composeApp**: Contains the shared Multiplatform code.
+  - **commonMain**: Code shared across all platforms (Android and iOS).
+  - **androidMain**: Android-specific implementations.
+  - **iosMain**: iOS-specific integrations.
+- **/iosApp**: Entry point for the iOS application, including SwiftUI code.
+- **/shared**: Shared business logic and utilities.
+  - **commonMain**: Core logic shared across all platforms.
+  - Platform-specific folders for additional customisations.
